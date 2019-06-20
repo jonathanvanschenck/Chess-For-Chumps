@@ -4,7 +4,7 @@ import varbs
 
 
 def InitalizeTimer(blacks=False):
-    return classes.Timer(20*60,(varbs.boardyoffset+8*varbs.box-8*varbs.box*blacks,varbs.boardxoffset))
+    return classes.Timer(varbs.totalTime*60,(varbs.boardyoffset+8*varbs.box-8*varbs.box*blacks,varbs.boardxoffset))
 
 
 def InitalizePieces(blacks=False):

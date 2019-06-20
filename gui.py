@@ -6,6 +6,7 @@ from pygame.locals import *
 import varbs
 import classes
 import initalize
+font = pg.font.SysFont("comicsansms", 72)
 #%%
 
 def main():
@@ -39,8 +40,8 @@ def main():
     #
     clock = pg.time.Clock()
     
-    
-    while 1:
+    stillRunning = True
+    while stillRunning:
         dt = clock.tick(varbs.fps)
         for event in pg.event.get():
             if event.type == QUIT:
@@ -76,6 +77,7 @@ def main():
                                 # Capture
                                 if possMove[0].occupant[0].blacks != active.sprites()[0].blacks:
                                     captS = possMove[0].occupant[0]
+                                    stillRunning = captS.k!="K"
                                     captS.kill()
                                     t = captS.blacks
                                     n = len([s for s in dead if s.blacks==t])
@@ -145,7 +147,18 @@ def main():
         dirty_rects += alive.draw(screen)
         #Flip display
         pg.display.update(dirty_rects)
-        
+    root = tk.Tk()
+    root.wm_withdraw()
+    l = messagebox.showinfo('Victor',
+                             ["White","Black"][pActive.sprite.blacks]+" Wins!")
+    root.destroy()
+    while True:
+        dt = clock.tick(varbs.fps)
+        for event in pg.event.get():
+            if event.type == QUIT:
+                pg.quit()
+                return
+
 #%%
 if __name__ == "__main__":
     main()

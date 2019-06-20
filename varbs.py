@@ -1,5 +1,7 @@
 #%%
 
+totalTime = 20#minutes
+
 boardxoffset = 100+50
 boardyoffset = 30
 boardW = 360
